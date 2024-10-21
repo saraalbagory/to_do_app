@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/common/app_colors.dart';
 import 'package:to_do_app/common/images_name.dart';
+import 'package:to_do_app/tabs/add_task.dart';
+import 'package:to_do_app/tabs/settings.dart';
+import 'package:to_do_app/tabs/to_do_list.dart';
 import 'package:to_do_app/widgets/to_do_card.dart';
 
 class TodayToDo extends StatefulWidget {
@@ -12,7 +15,8 @@ class TodayToDo extends StatefulWidget {
 
 class _TodayToDoState extends State<TodayToDo> {
   int _currentIndex = 0;
-  // static const List<String> tasks=[" "];
+  int _currentTab=0;
+   static const List  tabs=[ToDoList(),Settings(),AddTask()];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,30 +31,7 @@ class _TodayToDoState extends State<TodayToDo> {
           appBar: AppBar(
             title: Text("Today's Task"),
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 100,
-                ),
-                Expanded(
-                  child: ListView.separated(
-                    separatorBuilder: (context, index) => Divider(
-                      thickness: 0,
-                      height: 20,
-                      color: Colors.transparent,
-                    ),
-                    itemBuilder: (context, index) {
-                      return const ToDoCard();
-                    
-                    },
-                    itemCount: 5,
-                  ),
-                )
-              ],
-            ),
-          ),
+          body: tabs[_currentTab],
           bottomNavigationBar: ClipRRect(
             borderRadius: BorderRadius.vertical(top: Radius.circular(35.0)),
             child: BottomAppBar(
@@ -65,6 +46,7 @@ class _TodayToDoState extends State<TodayToDo> {
                 onTap: (index) {
                   setState(() {
                     _currentIndex = index;
+                    _currentTab=index;
                   });
                 },
                 items: const [
@@ -105,7 +87,11 @@ class _TodayToDoState extends State<TodayToDo> {
                     color: Colors.white,
                   ),
                 
-                onPressed: () {}),
+                onPressed: () {
+                  setState(() {
+                    _currentTab=2;
+                  });
+                }),
           ),
         ));
   }
