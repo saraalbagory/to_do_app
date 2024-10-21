@@ -4,6 +4,7 @@ import 'package:to_do_app/common/app_colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
+     primaryColor: AppColors.purple,
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         centerTitle: true,
