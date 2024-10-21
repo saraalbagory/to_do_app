@@ -4,7 +4,7 @@ import 'package:to_do_app/common/images_name.dart';
 import 'package:to_do_app/tabs/add_task.dart';
 import 'package:to_do_app/tabs/settings.dart';
 import 'package:to_do_app/tabs/to_do_list.dart';
-import 'package:to_do_app/widgets/to_do_card.dart';
+
 
 class TodayToDo extends StatefulWidget {
   const TodayToDo({super.key});
@@ -33,7 +33,7 @@ class _TodayToDoState extends State<TodayToDo> {
           ),
           body: tabs[_currentTab],
           bottomNavigationBar: ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(35.0)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(35.0)),
             child: BottomAppBar(
               elevation: 10,
               shape: const CircularNotchedRectangle(),
@@ -67,15 +67,14 @@ class _TodayToDoState extends State<TodayToDo> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: Container(
-              width:50,
-             
+              width:50,          
                   decoration: BoxDecoration(shape: BoxShape.circle, boxShadow: [
                     BoxShadow(
                       // Theme.of(context).colorScheme.secondary.withOpacity(0.7)
                       color: Theme.of(context).colorScheme.secondary.withOpacity(0.4), // Your shadow color
                       blurRadius: 10.0,
                       spreadRadius: 10.0,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                   color: Colors.transparent,),
@@ -88,8 +87,8 @@ class _TodayToDoState extends State<TodayToDo> {
                   ),
                 
                 onPressed: () {
-                  setState(() {
-                    _currentTab=2;
+                  showBottomSheet(context: context, builder:(context){
+                    return AddTask();
                   });
                 }),
           ),

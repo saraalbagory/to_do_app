@@ -18,10 +18,10 @@ class ToDoCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   "Grocery shopping app design",
                   style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 10,
                       color: Colors.black45,
                       fontWeight: FontWeight.w500),
                 ),
@@ -43,7 +43,7 @@ class ToDoCard extends StatelessWidget {
             const Text(
               "Competitive Analaysis",
               style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 12,
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
                   letterSpacing: 0.2),
