@@ -9,8 +9,8 @@ class GroupsIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-                  height: 30,
-                  width: 30,
+                  height: 20,
+                  width: 20,
                   decoration: BoxDecoration(
                     color: containerColor,
                     borderRadius: BorderRadius.circular(10),
