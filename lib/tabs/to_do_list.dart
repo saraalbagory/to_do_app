@@ -1,5 +1,6 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:to_do_app/models/task_model.dart';
 import 'package:to_do_app/widgets/status_filter.dart';
 import 'package:to_do_app/widgets/to_do_card.dart';
 
@@ -11,10 +12,15 @@ class ToDoList extends StatefulWidget {
 }
 
 class _ToDoListState extends State<ToDoList> {
-  final List<String> status = ["All", "Done", "In-progress", "To-do"];
+  final List<String> status = [
+    "All",
+    "Done",
+    "In-progress",
+    "To-do",
+  ];
   EasyInfiniteDateTimelineController? calunderController =
       EasyInfiniteDateTimelineController();
-      DateTime selectedDate=DateTime.now();
+  DateTime selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -24,12 +30,12 @@ class _ToDoListState extends State<ToDoList> {
           EasyInfiniteDateTimeLine(
             showTimelineHeader: false,
             firstDate: DateTime(2020),
-            focusDate:selectedDate,
+            focusDate: selectedDate,
             lastDate: DateTime(2025),
             activeColor: Theme.of(context).primaryColor,
             onDateChange: (newDate) {
               setState(() {
-                selectedDate=newDate;
+                selectedDate = newDate;
               });
             },
             dayProps: EasyDayProps(
@@ -46,7 +52,8 @@ class _ToDoListState extends State<ToDoList> {
                         color: Theme.of(context).primaryColor.withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 3,
-                        offset: Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                   ),
@@ -61,28 +68,6 @@ class _ToDoListState extends State<ToDoList> {
             ),
             selectionMode: const SelectionMode.autoCenter(),
           ),
-          // EasyDateTimeLine(
-          //   //headerProps: EasyHeaderProps(),
-          //   initialDate: DateTime(2020),
-          //   onDateChange: (selectedDate) {},
-          //   activeColor: Theme.of(context).primaryColor,
-          //   dayProps: EasyDayProps(
-          //     height: 80,
-          //     width: 55,
-          //     inactiveDayStyle: DayStyle(
-          //         decoration: BoxDecoration(
-          //             color: Colors.white,
-          //             borderRadius: BorderRadius.circular(10)),
-          //         dayStrStyle:
-          //             TextStyle(fontWeight: FontWeight.w600, fontSize: 12)),
-          //     activeDayStyle: DayStyle(
-          //       dayStrStyle: TextStyle(
-          //           fontWeight: FontWeight.w600,
-          //           color: Colors.white,
-          //           fontSize: 12),
-          //     ),
-          //   ),
-          // ),
           const SizedBox(
             height: 30,
           ),
@@ -120,7 +105,15 @@ class _ToDoListState extends State<ToDoList> {
           Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) {
-                  return const ToDoCard();
+                  return ToDoCard(
+                    task: TaskModel(
+                        taskGroup: 'Grocery Shopping App',
+                        taskName: 'Grocery Shopping App UI',
+                        description:
+                            "This application is designed for super shops. By using this application they can enlist all their products in one place and can deliver. Customers will get a one-stop solution for their daily shopping.",
+                        taskDate: DateTime.now(),
+                        status: 'To-do'),
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return const SizedBox(
