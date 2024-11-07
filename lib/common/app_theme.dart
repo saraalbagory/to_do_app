@@ -44,7 +44,7 @@ class AppTheme {
           onPrimary: AppColors.purple,
           secondary: AppColors.purple,
           onSecondary: AppColors.purple,
-          error: Colors.red,
+          error:Colors.red,
           onError: Colors.red,
           surface: Colors.white,
           onSurface: Colors.black),

@@ -15,7 +15,6 @@ class CustomElevatedButton extends StatelessWidget {
         style: TextStyle(
             color: Theme.of(context).colorScheme.surface, fontSize: 15),
       ),
-      
     );
   }
 }
