@@ -8,6 +8,7 @@ class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
 
+
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -30,6 +31,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ],
       ),
       child: TextFormField(
+        
         //autovalidateMode: AutovalidateMode.always,
         controller: widget.controller,
         validator:widget.validator ,
@@ -39,7 +41,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         ),
         decoration: InputDecoration(
           labelText: widget.labelText,
-
+        
           labelStyle: const TextStyle(
             fontWeight: FontWeight.w600,
             color: Colors.grey,
